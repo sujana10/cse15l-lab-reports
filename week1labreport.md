@@ -7,7 +7,7 @@ This is a simple tutorial for logging into a course-specific account on `ieng6` 
 
 I previously had VS Code downloaded on my computer from another class, but the process is really quite simple. Just visit the [VS Code Website](https://code.visualstudio.com/) and follow the instructions to get the app on your computer. I have a MacOS, so I downloaded that version of the app. Once it's downloaded, opening up the app should give you something like the screenshot below:
 
-![](https://github.com/sujana10/cse15l-lab-reports/blob/38f15a4134fbbfbc82b4cc618ac630c2984dd184/Screen%20Shot%202023-01-11%20at%202.39.54%20PM.png)
+![image1](./Screen%20Shot%202023-01-11%20at%202.39.54%20PM.png)
 
 ### Remotely Connecting
 
