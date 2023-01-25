@@ -19,13 +19,13 @@ Then, look up your CSE 15L course-specific account [here](https://sdacs.ucsd.edu
 
 and answer 'yes' to any prompted messages when connecting for the first time. After logging in, your terminal should look similar to this for your specific account:
 
-![](https://github.com/sujana10/cse15l-lab-reports/blob/38f15a4134fbbfbc82b4cc618ac630c2984dd184/Screen%20Shot%202023-01-12%20at%202.34.35%20PM.png)
+![image2](./Screen%20Shot%202023-01-12%20at%202.34.35%20PM.png)
 
 ### Trying Terminal Commands
 
 After I logged in for the first time, I played around with different commands in my terminal like `cd`, `pwd`, `ls <directory>`, and so on. This produced a variety of outputs, including some error messages! For example, I got an `Error` when I tried accessing another user's directory. Also, the command `exit` will log you out of the remote server. Here is a screenshot of some example commands and their outputs:
 
-![](https://github.com/sujana10/cse15l-lab-reports/blob/38f15a4134fbbfbc82b4cc618ac630c2984dd184/Screen%20Shot%202023-01-12%20at%202.35.05%20PM.png)
+![image3](./Screen%20Shot%202023-01-12%20at%202.35.05%20PM.png)
 
 #### *The End!*
 
