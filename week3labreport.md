@@ -13,14 +13,60 @@ The first tester screenshot calls the addString() method in order to send a new 
 The second tester operates essentially the same way as the first; it calls addString() three times, passing in arguments of "/add-message?s=Good afternoon!", "/add-message?s=Today is Friday.", and "/add-message?s=:)" for each time respectively. The test also calls getString() to get the updated runningString after each requested string is added to it. After the first method call to addString(), runningString is changed to "\nGood afternoon!". After the second call to addString(), runningString changes to "\nGood afternoon!\nToday is Friday.". Following the third call, the final value of runningString for this tester is "\nGood afternoon!\nToday is Friday.\n:)".
   
 ### Part 2
+Below I will be showing some code for a method reverseInPlace() that reverses the order of an integer array.
   
-Failure inducing input:
+Failure inducing input: 
+``` 
+@Test
+  public void testReverseInPlace() {
+    int[] input1 = {1, 2, 3, 4};
+    ArrayExamples.reverseInPlace(input1);
+    System.out.println(Arrays.toString(input1));
+    assertArrayEquals(new int[] {4, 3, 2, 1}, input1);
+  }
+```
   
 Non-failure inducing input:
-  
+```
+@Test
+  public void testReverseInPlace2() {
+    int[] input1 = {3, 2, 3};
+    ArrayExamples.reverseInPlace(input1);
+    System.out.println(Arrays.toString(input1));
+    assertArrayEquals(new int[] {3, 2, 3}, input1);
+  }
+```
 Symptoms of running tests with both of these inputs:
   
-Bug: The first screenshot shows the original buggy code, and the second shows the fixed non-buggy code.
+The original buggy code: 
+```
+static void reverseInPlace(int[] arr) {
+
+    for(int i = 0; i < arr.length; i += 1) {
+      arr[i] = arr[arr.length - i - 1];
+    }
+    
+  }
+```
+  
+The fixed non-buggy code:
+```
+static void reverseInPlace(int[] arr) {
+    int[] placeholder = new int[arr.length];
+    for (int i = 0; i < arr.length; i++) {
+      placeholder[i] = arr[i];
+    }
+
+    for(int i = 0; i < arr.length/2; i += 1) {
+      arr[i] = arr[arr.length - i - 1];
+    }
+    for(int i = arr.length/2; i < arr.length; i += 1) {
+      arr[i] = placeholder[arr.length - i - 1];
+    }
+    
+  }            
+```
+This fix addresses the issue because I initially made a copy of the input array and stored it in the placeholder array. Then I wrote two for loops that iterate through the first half and second half of the input array, respectively. I copy the items from the original array in the first loop, and copy items from the placeholder array in the second loop, which ultimately preserves the order of elements when reversing the array. The original code reverses the original array, which means it is copying elements into the array that have already been copied, rather than using the original elements.
   
 ### Part 3
   
