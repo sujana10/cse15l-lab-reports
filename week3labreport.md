@@ -7,7 +7,7 @@ Here are some screenshots for a program I wrote called StringServer.java. The go
 
 ![image1](./Screen%20Shot%202023-01-26%20at%207.34.26%20PM.png) 
   
-The first screenshot shows the code itself and how the program is implemented. The next screenshots show two different tester methods that call the program's primary methods to test the code using JUnit. 
+The first screenshot shows the code itself and how the program is implemented. It utilizes the pre-created file Server.java to properly handle the URL and launch the server. The next screenshots show the web server in action by testing it using URLs from the browser. 
 
 ![image2](./Screen%20Shot%202023-01-26%20at%207.45.41%20PM.png)
 ![image3](./Screen%20Shot%202023-01-26%20at%207.33.13%20PM.png)
@@ -57,27 +57,22 @@ static void reverseInPlace(int[] arr) {
       arr[i] = arr[arr.length - i - 1];
     }
     
-  }
+}
 ```
   
 The fixed non-buggy code:
 ```
 static void reverseInPlace(int[] arr) {
-    int[] placeholder = new int[arr.length];
-    for (int i = 0; i < arr.length; i++) {
-      placeholder[i] = arr[i];
-    }
 
     for(int i = 0; i < arr.length/2; i += 1) {
+      int element = arr[i];
       arr[i] = arr[arr.length - i - 1];
-    }
-    for(int i = arr.length/2; i < arr.length; i += 1) {
-      arr[i] = placeholder[arr.length - i - 1];
+      arr[arr.length - i - 1] = element;
     }
     
-  }            
+}           
 ```
-This fix addresses the issue because I initially made a copy of the input array and stored it in the placeholder array. Then I wrote two for loops that iterate through the first half and second half of the input array, respectively. I copied the items from the original array in the first loop, and copied items from the placeholder array in the second loop, which ultimately preserves the order of elements when reversing the array. The original code reverses the original array, which means it is copying elements into the array that have already been copied, rather than using the original elements, which is what ends up causing the bug.
+To fix this code, I reversed the array using the same method as the original code; this method involves swapping elements from both ends until the entire array is copied in reverse order. The original code does this swapping for the entire length of the array, while my code only iterates through the first half of the array. I also made a variable to store the original element at each index, so that I could reassign the value at the other end of the array, represented by the index "arr.length - i - 1", to that original element. This fix addresses the issue because it preserves the elements in the first half of the array; the original code was swapping elements throughout the array, which resulted in already-copied elements being copied again and consequently, the loss of some original elements.
   
 ### Part 3
   
