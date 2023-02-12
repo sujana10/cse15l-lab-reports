@@ -3,11 +3,45 @@
 
 ### Part 1
 
-Here are some screenshots for a program I wrote called StringServer.java. The goal of this program is to act as a web server that keeps track of a single string that gets added to by incoming requests, in the form of a path that looks like "/add-message?s=(string)".
+Here is some code and screenshots for a program I wrote called StringServer.java. The goal of this program is to act as a web server that keeps track of a single string that gets added to by incoming requests, in the form of a path that looks like "/add-message?s=(string)".
 
-![image1](./Screen%20Shot%202023-02-11%20at%203.31.00%20PM.png) 
+```
+import java.io.IOException;
+import java.net.URI;
+
+
+class Handler implements URLHandler{
+
+    String runningString = "";
+    
+        public String handleRequest(URI url) {
+            String[] strArray = new String[2];
+            if (url.getPath().contains("/add-message")) {
+                strArray = url.getQuery().split("=");
+                this.runningString += "\n" + strArray[1];
+                return this.runningString;
+            }
+
+            return "404 Not Found!";
+        }
+}
+
+class StringServer {
+
+        public static void main(String[] args) throws IOException {
+            if(args.length == 0){
+                System.out.println("Missing port number! Try any number between 1024 to 49151");
+                return;
+            }
+    
+            int port = Integer.parseInt(args[0]);
+    
+            Server.start(port, new Handler());
+        }
+}
+```
   
-The first screenshot shows the code itself and how the program is implemented. It utilizes the pre-created file Server.java to properly handle the URL and launch the server. The next screenshots show the web server in action by testing it using URLs from the browser. 
+This code block shows the source code itself and how the program is implemented. It utilizes the pre-created file Server.java to properly handle the URL and launch the server. The next screenshots show the web server in action by testing it using URLs from the browser. 
 
 ![image2](./Screen%20Shot%202023-02-11%20at%203.38.38%20PM.png)
 
