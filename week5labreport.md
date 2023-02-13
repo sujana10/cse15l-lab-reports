@@ -5,7 +5,7 @@ This report will cover four different command line operations with the command `
 
 ### Command Line Operations With `grep`
 
-1. `--color` | [Source](https://www.digitalocean.com/community/tutorials/grep-command-in-linux-unix)
+1. `grep --color` | [Source](https://www.digitalocean.com/community/tutorials/grep-command-in-linux-unix)
 
 Example 1:
 
@@ -72,7 +72,7 @@ grep -v "a" ./written_2/travel_guides/berlitz1/HandRHawaii.txt
 This second example does the same thing as the first, but instead of returning the lines that don't contain "o", it returns the files that don't contain the lowercase letter "a". The above output is what I got when running this command.
 
 
-3. `-c` | [Source](https://www.geeksforgeeks.org/grep-command-in-unixlinux/)
+3. `grep -c` | [Source](https://www.geeksforgeeks.org/grep-command-in-unixlinux/)
 
 Example 1:
 
@@ -101,7 +101,7 @@ grep -c "travel" ./written_2/non-fiction/OUP/Abernathy/*.txt
 In this second example, I run the command on all the .txt files in the Abernathy directory. This format gives me a unique output in that I am able to see the number of lines in which "travel" appears for each file in the directory. This command thus provides an effective way to search for a specific piece of text in a directory, by giving a nice output of the number of lines containing the text in each file.
 
 
-4. `-i` | [Source](https://www.geeksforgeeks.org/grep-command-in-unixlinux/)
+4. `grep -i` | [Source](https://www.geeksforgeeks.org/grep-command-in-unixlinux/)
 
 Example 1:
 
