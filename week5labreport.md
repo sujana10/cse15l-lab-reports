@@ -148,6 +148,6 @@ grep -i -v "o" ./written_2/travel_guides/berlitz1/HandRHawaii.txt
         Lanai
 ```
 
-For this second example of using `-i`, I wanted to revisit a previous example in which we used a different command. Remember how `grep` searches case-sensitively by default, and as a result, we got an output that included appearances of capital "O" when we used `grep -v` on the file HandRHawaii.txt. In this example, we see how using the `-i` tag returns lines that do not contain the letter "o" in any form. This example also shows that `grep` commands can be layered with each other to obtain a specific functionality, which can make searching through files and directories very efficient.
+For this second example of using `-i`, I wanted to revisit a previous example in which we used a different command. Remember how `grep` searches case-sensitively by default, and as a result, we got an output that included appearances of capital "O" when we used `grep -v` on the file HandRHawaii.txt. In this example, we see how using the `-i` tag returns lines that do not contain the letter "o" in any form. This example also shows that `grep` commands can be layered with each other to obtain a really specific functionality, which can make searching through files and directories very efficient.
 
 ### The End
